@@ -1,0 +1,22 @@
+{% block content %}
+<form action="." method="post">{% csrf_token %}
+<ul>List:
+    {% for data in object %}
+    <p>Data-{{forloop.counter}}</p>
+  <li>{% if data.t1 == '' or data.t1 == 'undefined' or data.t1 == null %}
+      data not found
+      {% else %}
+      {{data.t1}}
+      {% endif %}
+  </li>
+  <li>{% if data.t2 == '' or data.t2 == 'undefined' or data.t2 == null %}
+      data not found
+      {% else %}
+      {{data.t2}}
+      {% endif %}</li>
+    {% endfor %}
+</ul>
+ <!--<input type="submit" value="save"/>-->
+</form>
+
+{% endblock content%}
